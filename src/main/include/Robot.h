@@ -63,7 +63,7 @@ class Robot : public frc::TimedRobot {
 
     //********Setting ratios for wheel distance********
     //wheelbase (from center of front wheel to center of back wheel) unit doesn't matter because these will only be used as ratios but works well with meters
-    //IMPORTANT!!!    THESE TWO NUMBERS ARE WRONG!!!    >>> MUST CHANGE "L" & "W" WITH NEW FRAME <<<
+    //IMPORTANT!!!    THESE TWO NUMBERS ARE THE LENGTH AND WIDTH, THE EXACT VALUE DOES NOT MATTER IF THE FRAME IS SQUARE!!!    >>> MUST CHANGE "L" & "W" WITH NON-SQUARE FRAME <<<
     L = 25.75;
 	  W = 25.75;
 
