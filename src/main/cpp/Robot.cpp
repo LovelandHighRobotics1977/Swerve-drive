@@ -91,6 +91,17 @@ void Robot::RobotInit() {
 	m_fla.ConfigPeakOutputReverse(-1);
 
 
+  //configure the offsets of the cancoders so that 0 is forward in absolute mode
+  m_flsensor.ConfigMagnetOffset(100);
+  m_frsensor.ConfigMagnetOffset(110);
+  m_rlsensor.ConfigMagnetOffset(250);
+  m_rrsensor.ConfigMagnetOffset(148);
+  m_flsensor.SetPositionToAbsolute();
+  m_frsensor.SetPositionToAbsolute();
+  m_rlsensor.SetPositionToAbsolute();
+  m_rrsensor.SetPositionToAbsolute();
+
+
   //ahrs = new AHRS(frc::SPI::Port::kMXP);
   ahrs = new AHRS(frc::I2C::Port::kMXP);
 
@@ -191,6 +202,7 @@ void Robot::TeleopInit() {
 	m_fla.ConfigNominalOutputReverse(0);
 	m_fla.ConfigPeakOutputForward(1);
 	m_fla.ConfigPeakOutputReverse(-1);
+
 
   ahrs = new AHRS(frc::I2C::Port::kMXP);
 }
