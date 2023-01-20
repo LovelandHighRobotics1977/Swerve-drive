@@ -121,7 +121,7 @@ void Robot::TeleopInit() {
   //timer.Start();
 }
 void Robot::TeleopPeriodic() {
-  double forward = -(m_driverController.GetRightY());
+  double forward = -m_driverController.GetRightY();
   double strafe =  m_driverController.GetRightX();
   double rotate = m_driverController.GetLeftX();
 
@@ -129,7 +129,9 @@ void Robot::TeleopPeriodic() {
   if((forward<.2)&&(forward>-.2)){forward = 0;}
   if((strafe<.2)&&(strafe>-.2)){strafe = 0;}
   if((rotate<.2)&&(rotate>-.2)){rotate = 0;}
-
+  if(m_driverController.GetYButton() == 1){
+    ahrs->ZeroYaw();
+  }
   drive(forward, strafe, rotate);
 }
 
